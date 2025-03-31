@@ -1,0 +1,43 @@
+iniciar-programa
+ define-nueva-instruccion gira-derecha como inicio
+  repetir 3 veces inicio
+  	gira-izquierda;
+  fin;
+ fin;
+ 
+ define-nueva-instruccion lleva-queso como inicio
+  mientras junto-a-zumbador hacer inicio
+   coge-zumbador;
+  fin;
+ fin;
+ 
+    inicia-ejecucion
+    avanza;
+    coge-zumbador;
+    
+    mientras algun-zumbador-en-la-mochila hacer inicio
+     si derecha-libre y frente-libre y izquierda-libre y orientado-al-oeste entonces inicio
+      mientras algun-zumbador-en-la-mochila hacer inicio
+       deja-zumbador;
+      fin;
+      apagate;
+     fin;
+     
+     mientras derecha-libre hacer inicio
+      lleva-queso;
+      gira-derecha;
+      avanza
+     fin;
+     
+     si derecha-bloqueada y frente-libre entonces inicio
+      lleva-queso;
+      avanza;
+     fin;
+     
+     mientras frente-bloqueado y derecha-bloqueada hacer inicio
+      lleva-queso;
+      gira-izquierda;
+     fin;
+    fin;
+    termina-ejecucion
+finalizar-programa

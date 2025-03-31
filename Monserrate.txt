@@ -1,0 +1,50 @@
+iniciar-programa
+ define-nueva-instruccion gira-derecha como inicio
+    repetir 3 veces inicio
+    	gira-izquierda
+        fin;
+ fin;
+ define-nueva-instruccion da-media-vuelta como inicio
+   gira-izquierda;
+   gira-izquierda;
+ fin;
+    inicia-ejecucion
+      mientras ningun-zumbador-en-la-mochila hacer inicio
+
+          si frente-bloqueado y derecha-bloqueada  entonces inicio
+            gira-izquierda;
+            avanza;
+            gira-derecha;
+            avanza;
+          fin;
+          
+          mientras junto-a-zumbador hacer inicio
+          	coge-zumbador;
+          fin;
+          
+
+      fin;
+          avanza;
+          gira-derecha;
+          avanza;
+      mientras algun-zumbador-en-la-mochila hacer inicio
+      
+        si derecha-bloqueada y frente-bloqueado entonces inicio
+          gira-izquierda;
+          avanza;
+          gira-derecha;
+          avanza;
+        fin
+        sino inicio
+          da-media-vuelta;
+          avanza;
+          gira-izquierda;
+          avanza;
+            mientras algun-zumbador-en-la-mochila hacer inicio
+              deja-zumbador;
+            fin;
+          si junto-a-zumbador entonces apagate;
+        fin;
+      fin;
+    termina-ejecucion
+finalizar-programa

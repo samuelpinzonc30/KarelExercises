@@ -1,0 +1,63 @@
+iniciar-programa
+ define-nueva-instruccion gira-derecha como inicio
+  repetir 3 veces inicio
+  	gira-izquierda
+  fin;
+ fin;
+ 
+ define-nueva-instruccion avance como inicio
+  si derecha-bloqueada y izquierda-bloqueada y frente-libre entonces inicio
+   avanza;
+  fin;
+ fin;
+ 
+ define-nueva-instruccion plan-salida como inicio
+  si derecha-bloqueada y izquierda-bloqueada y frente-bloqueado entonces inicio
+   gira-izquierda;
+   gira-izquierda;
+  fin;
+ fin;
+ 
+ define-nueva-instruccion pato-al-agua como inicio
+  mientras junto-a-zumbador hacer inicio
+  coge-zumbador
+  fin;
+ fin;
+ 
+  define-nueva-instruccion plan-giro como inicio
+   si frente-bloqueado y izquierda-bloqueada y derecha-libre entonces inicio
+    gira-derecha;
+    avanza;
+   fin;
+   
+   si frente-bloqueado y derecha-bloqueada y izquierda-libre entonces inicio
+    gira-izquierda;
+    avanza;
+   fin;
+   
+  fin;
+  
+  define-nueva-instruccion pato-a-tierra como inicio
+   si (derecha-libre y izquierda-libre y frente-libre) entonces inicio
+    mientras algun-zumbador-en-la-mochila hacer inicio
+     deja-zumbador;
+    fin;
+    apagate;
+   fin;
+  fin;
+    inicia-ejecucion
+    
+     mientras ningun-zumbador-en-la-mochila hacer inicio
+      pato-al-agua;
+      avance;
+      plan-giro;
+     fin;
+     
+     mientras algun-zumbador-en-la-mochila hacer inicio
+      plan-salida;
+      avance;
+      plan-giro;
+      pato-a-tierra;
+     fin;
+    termina-ejecucion
+finalizar-programa
