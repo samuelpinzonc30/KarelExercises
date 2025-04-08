@@ -1,0 +1,52 @@
+iniciar-programa
+ define-nueva-instruccion gira-derecha como inicio
+  repetir 3 veces inicio
+   	gira-izquierda;
+  fin;
+ fin;
+ 
+ define-nueva-instruccion recoge-maiz como inicio
+  mientras junto-a-zumbador hacer inicio
+   coge-zumbador;
+  fin;
+ fin;
+    inicia-ejecucion
+     mientras (frente-libre y orientado-al-norte) o (frente-libre y orientado-al-sur) hacer inicio
+      si (orientado-al-norte y frente-bloqueado y derecha-bloqueada) o (orientado-al-sur y frente-bloqueado y izquierda-bloqueada) entonces inicio
+       si orientado-al-norte entonces inicio
+        gira-izquierda;
+        gira-izquierda;
+        mientras algun-zumbador-en-la-mochila y frente-libre hacer inicio
+         avanza;
+        fin;
+       fin;
+       si orientado-al-sur entonces inicio
+        gira-derecha;
+        mientras algun-zumbador-en-la-mochila y frente-libre hacer inicio
+         avanza;
+         si frente-bloqueado y izquierda-bloqueada entonces inicio
+          mientras algun-zumbador-en-la-mochila hacer inicio
+           deja-zumbador;
+          fin;
+          apagate;
+         fin;
+        fin;
+       fin;
+      fin;
+      si frente-libre entonces inicio
+       recoge-maiz;
+       avanza;
+      fin;
+      si frente-bloqueado y derecha-libre y orientado-al-norte entonces inicio
+       gira-derecha;
+       avanza;
+       gira-derecha;
+      fin;
+      si frente-bloqueado y derecha-libre y orientado-al-sur entonces inicio
+       gira-izquierda;
+       avanza;
+       gira-izquierda;
+      fin;
+     fin;
+    termina-ejecucion
+finalizar-programa
